@@ -6,7 +6,7 @@ This repo is a single demo for counting "active users" (actually browser tabs) o
 
   Is a simple communication protocol that creates a permanent server/client communication with a low latency.
 
-  The websockets commnications are bidi and also event oriented (usually used for messages), is very used on messaging platforms, multiplayer games and collab apps.
+  The websockets communications are bidi and also event oriented (usually used for messages), is very used on messaging platforms, multiplayer games and collab apps.
 
 ## SocketIO
 
@@ -18,9 +18,13 @@ This repo is a single demo for counting "active users" (actually browser tabs) o
 
   This package helps avoid starting and closing the server anytime changes occurs in development. Actually is not a project dependency but it could be a good approach of usage in local environments.
 
+  Installation: `npm install -g nodemon`
+
 ## Run
 
   Assuming you have the Node environment perfectly installed (with the nodemon) just run the `npm start`, and start opening tabs on `localhost:3000`
+
+  The npm start command run the following script `nodemon -e html app.js`
 
 ## Credits
   - [David Lares](https://twitter.com/davidlares3)
