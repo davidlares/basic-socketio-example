@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Socket.io Active Connections Counter</title>
+  </head>
+  <body>
+    <h1>Socket.io Active Connections Counter</h1>
+    <p id="hello"></p>
+    <p>Active connections detected <b id="connections"></b></p>
+    <script src="./socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      // anon function autoexec
+      ((d,c,io) => {
+        io.on('hello', data => {
+          c(data)
+          d.getElementById('hello').textContent = data.message
+        })
+        // emitting from client
+        io.emit('response',{ name: 'David', twitter: '@davidlares3' })
+        // receiving from server (counter)
+        io.on('connected-user', data => {
+          c(`Updating from server. There's ${data.connections} active users`)
+          d.getElementById('connections').textContent = data.connections
+        })
+      })(document, console.log, io());
+    </script>
+  </body>
+</html>
